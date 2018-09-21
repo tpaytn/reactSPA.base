@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no" />
+    <meta name="HandheldFriendly"
+          content="true" />
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es7-shim/6.0.0/es7-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="libs/object-path-master/index.js"></script>
+  </head>
+  <body
+    id="react-app" 
+    style="
+      margin: 0;
+      padding: 0;
+      background: #445577;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+    "
+  >
+    <script type="text/babel">
+      // ----------------------------------------------------------------------
+      // HTTP requests and responses
+
+      const doRequest = (method, url) => new Promise(
+        (res, rej) => {
+          const httpRequest = new XMLHttpRequest();
+          httpRequest.onload = () => {
+            if (httpRequest.status >= 200 && httpRequest.status < 300) {
+              res(httpRequest.responseText);
+            } else {
+              rej(httpRequest);
+            }
+          };
+          httpRequest.onerror = () => rej(Error(httpRequest.statusText));
+          httpRequest.open(method, url);
+          httpRequest.send();
+        }
+      );
+
+      // Request handling
+      const URL = "https://";
+
+
+      // ----------------------------------------------------------------------
+      // Components
+
+      const Main = (props) => {
+        // State processing and data transformation
+
+        // Root component
+        return (
+          <div style={{ padding: "10px" }}>
+
+          </div>
+        );
+      };
+
+
+      // ----------------------------------------------------------------------
+      // State and state handling
+
+      const update = (path, data) => {
+        objectPath.set(appState, path, data);
+        renderMain();
+      };
+
+      // State
+      const appState = {
+        // state data
+
+        // callback functions
+
+      };
+
+
+      // ----------------------------------------------------------------------
+      // Render the view
+      const renderMain = () => ReactDOM.render(
+        Main(appState),
+        document.getElementById("react-app")
+      );
+
+      // Inital render:
+      renderMain();
+
+    </script>
+  </body>
+</html>
